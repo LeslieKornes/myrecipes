@@ -24,3 +24,14 @@ $navbar-default-bg: #073B15;
 .center {
   text-align: center;
 }
+
+.jumbotron {
+  background-image: asset-url('italy.jpeg');
+  background-size: cover;
+  height: 300px;
+  background-position: bottom;
+}
+
+.jumbotron h1, .jumbotron h2 {
+  color: white;
+}
