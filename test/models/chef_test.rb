@@ -38,4 +38,12 @@ class ChefTest < ActiveSupport::TestCase
     end
   end
 
+  test "should reject invalid emails" do
+    invalid_emails = %w[leslie@example andrew@gmail,com name@gmail]
+    invalid_emails.each do |invalid|
+      @chef.email = invalid
+      assert_not @chef.valid?, "#{invalid.inspect} should be invalid"
+    end
+  end
+
 end
