@@ -46,4 +46,11 @@ class ChefTest < ActiveSupport::TestCase
     end
   end
 
+  test "email should be unique" do
+    duplicate_chef = @chef.dup
+    duplicate_chef.email = @chef.email.upcase
+    @chef.save
+    assert_not duplicate_chef.valid?
+  end
+
 end
