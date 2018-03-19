@@ -4,6 +4,6 @@ root "pages#home"
 
 get 'pages/home', to: 'pages#home'
 
-resources :recipes
+#resources :recipes
 
 end
