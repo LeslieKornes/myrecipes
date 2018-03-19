@@ -5,4 +5,6 @@ class Recipe < ApplicationRecord
 
   belongs_to :chef
 
+  validates :chef_id, presence: true
+
 end
