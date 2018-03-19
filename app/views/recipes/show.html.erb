@@ -6,5 +6,11 @@
   <p>
     Created by:
   </p>
-  <%= @recipe.chef.chefname %>
+  <p>
+    <small><%= @recipe.chef.chefname %></small>
+    <div class="pull-right">
+      Created: <%= time_ago_in_words(@recipe.created_at) %>
+    </div>
+  </p>
+
 </div>
