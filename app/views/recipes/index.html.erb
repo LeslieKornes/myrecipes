@@ -1,9 +1,19 @@
-<h1>Recipe Index</h1>
+<h1 align="center">All Recipes</h1>
+<hr />
 
 <% @recipes.each do |recipe| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="center">
 
-  <h4><%= recipe.name %></h4>
-  <h4><%= recipe.description %></h4>
-  <small><%= time_ago_in_words(recipe.created_at) %></small>
-
+      </section>
+    </div>
+    <div class="col-md-8 well">
+      <h4><%= recipe.name %></h4>
+      <p><%= truncate(recipe.description, length: 150) %></p>
+      <p>
+        <span class="quiet"><small>Created on <%= time_ago_in_words(recipe.created_at) %></small></span>
+      </p>
+    </div>
+  </div>
 <% end %>
