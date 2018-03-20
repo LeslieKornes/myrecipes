@@ -17,7 +17,16 @@ class RecipesEditTest < ActionDispatch::IntegrationTest
   end
 
   test "should successfully edit a recipe" do
-
+    get edit_recipe_path(@recipe)
+    assert_template 'recipes/edit'
+    new_name = "new recipe name"
+    new_description = "new description"
+    patch recipe_path(@recipe), params: { recipe: { name: new_name, description: new_description } }
+    assert_redirected_to @recipe
+    assert_not flash.empty?
+    @recipe.reload
+    assert_match new_name, @recipe.name
+    assert_match new_description, @recipe.description
   end
 
 end
