@@ -7,4 +7,12 @@ class ChefsSignupTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should reject an invalid signup" do
+
+  end
+
+  test "should accept valid signup" do
+
+  end
+
 end
