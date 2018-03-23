@@ -14,6 +14,10 @@ class ChefsController < ApplicationController
       @chef = Chef.find(params[:id])
   end
 
+  def index
+    @chefs = Chef.all
+  end
+
   def new
     @chef = Chef.new
   end
