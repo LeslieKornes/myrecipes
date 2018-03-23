@@ -19,12 +19,12 @@ class ChefEditTest < ActionDispatch::IntegrationTest
   test "should accept valid edit" do
     get edit_chef_path(@chef)
     assert_template 'chefs/edit'
-    patch chef_path(@chef), params: { chef: { chefname: "Nino1", email: "Nino1@nkmail.com" } }
+    patch chef_path(@chef), params: { chef: { chefname: "Nino1", email: "nino1@nkmail.com" } }
     assert_redirected_to @chef
     assert_not flash.empty?
     @chef.reload
     assert_match "Nino1", @chef.chefname
-    assert_match "Nino1@nkmail.com", @chef.email
+    assert_match "nino1@nkmail.com", @chef.email
   end
 
 end
