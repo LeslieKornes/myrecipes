@@ -1,6 +1,6 @@
 class ChefsController < ApplicationController
 
-  before_action :set_chef, only: [:edit, :delete, :show, :update]
+  before_action :set_chef, only: [:edit, :destroy, :show, :update]
 
   def create
     @chef = Chef.new(chef_params)
