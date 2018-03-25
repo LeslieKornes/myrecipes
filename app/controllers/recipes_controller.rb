@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [ :edit, :show, :update ]
+  before_action :set_recipe, only: [ :destroy, :edit, :show, :update ]
   before_action :require_user, except: [ :index, :show ]
   before_action :require_same_user, only: [ :destroy, :edit, :update ]
 
