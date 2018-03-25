@@ -1,6 +1,7 @@
 class ChefsController < ApplicationController
 
-  before_action :set_chef, only: [:edit, :destroy, :show, :update]
+  before_action :set_chef, only: [ :edit, :destroy, :show, :update ]
+  before_action :require_same_user, only: [ :destroy, :edit, :update ]
 
   def create
     @chef = Chef.new(chef_params)
@@ -47,6 +48,13 @@ class ChefsController < ApplicationController
 
   def chef_params
     params.require(:chef).permit(:chefname, :email, :password, :password_confirmation)
+  end
+
+  def require_same_user
+    if current_chef != @chef
+      flash[:danger] = "You can only edit or delete your own account!"
+      redirect_to chefs_path
+    end
   end
 
   def set_chef
