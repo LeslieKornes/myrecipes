@@ -26,4 +26,12 @@ class ChefsListingTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
   end
 
+  test "should delete all associated recipes of destroyed chef" do
+    @chef.save
+    @chef.recipes.create!(name: "Testing destroy", description: "Testing destroy action")
+    assert_difference 'Recipe.count', -1 do
+      @chef.destroy
+    end
+  end
+
 end
