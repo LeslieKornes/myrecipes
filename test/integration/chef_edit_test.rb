@@ -34,7 +34,7 @@ class ChefEditTest < ActionDispatch::IntegrationTest
     assert_match "nino1@nkmail.com", @chef.email
   end
 
-  test "should accept edit attempt by adnin user" do
+  test "should accept edit attempt by admin user" do
     sign_in_as(@admin, "Dodjie0706")
     get edit_chef_path(@chef)
     assert_template 'chefs/edit'
@@ -47,7 +47,15 @@ class ChefEditTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect edit attempt by another non-admin user" do
-
+    sign_in_as(@chef2, "Dodjie0706")
+    updated_name = "Leslie"
+    updated_email = "Leslie@gmail.com"
+    patch chef_path(@chef), params: { chef: { chefname: updated_name, email: updated_email } }
+    assert_redirected_to chefs_path
+    assert_not flash.empty?
+    @chef.reload
+    assert_match "Nino", @chef.chefname
+    assert_match "nino@nkmail.com", @chef.email
   end
 
 end
