@@ -32,7 +32,7 @@
             <li><%= link_to "All Ingredients", ingredients_path %></li>
             <% Ingredient.all.each do |ing| %>
               <li>
-                <%= link_to ing.name, ingredient_path(ing) %>
+                <%= link_to ing.name.capitalize, ingredient_path(ing) %>
               </li>
             <% end %>
             <li role="separator" class="divider"></li>
