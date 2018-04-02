@@ -29,7 +29,7 @@ class IngredientsController < ApplicationController
   end
 
   def update
-    if @ingredient.update
+    if @ingredient.update(ingredient_params)
       flash[:success] = "Ingredient was successfully upadated!"
       redirect_to @ingredient
     else
