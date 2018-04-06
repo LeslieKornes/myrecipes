@@ -2,10 +2,10 @@ class Chef < ApplicationRecord
 
   before_save { self.email = email.downcase }
 
+  has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :recipes, dependent: :destroy
 
-  has_many :comments, dependent: :destroy
-  
   has_secure_password
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
