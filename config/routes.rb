@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
 
+  get '/chat', to: 'chatrooms#show'
   get 'pages/home', to: 'pages#home'
   get '/signup', to: 'chefs#new'
   get '/login', to: 'sessions#new'
