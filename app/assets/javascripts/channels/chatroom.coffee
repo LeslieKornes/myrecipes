@@ -1,5 +1,7 @@
 App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   connected: ->
+    scrollToBottom()
+    return
     # Called when the subscription is ready for use on the server
 
   disconnected: ->
@@ -11,7 +13,7 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     scrollToBottom()
     return
 
-    jQuery(document).on 'turbolinks:load', ->
-      scrollToBottom()
-      return
+  jQuery(document).on 'turbolinks:load', ->
+    scrollToBottom()
+    return
     # Called when there's incoming data on the websocket for this channel
