@@ -1,7 +1,7 @@
 App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   connected: ->
-    scrollToBottom()
-    return
+    #scrollToBottom()
+    #return
     # Called when the subscription is ready for use on the server
 
   disconnected: ->
